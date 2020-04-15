@@ -6,13 +6,12 @@ let total = 0;
 while (value != null) {
   value = prompt("введите число");
   if (value != null) {
-    console.log(value);
     value = parseInt(value);
-    total += value;
+    if (Number.isNaN(value)) {
+      alert("Было введено не число, попробуйте еще раз");
+    } else total += value;
+    console.log(value);
   } else {
     alert("Общая сумма чисел равна " + total);
   }
-  // if (total==NaN){
-  //     value = prompt('Было введено не число, попробуйте еще раз');
-  //     }
 }
