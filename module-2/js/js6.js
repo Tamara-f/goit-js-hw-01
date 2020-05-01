@@ -1,13 +1,12 @@
-let input;
-const numbers = [];
-let total = 0;
-
 const add = function () {
+  let input;
+  const numbers = [];
+  let total = 0;
   do {
     input = prompt("введите число");
 
     if (input === null) {
-      return "отменено пользователем";
+      console.log("отменено пользователем");
       break;
     }
 
@@ -24,7 +23,7 @@ const add = function () {
   for (let number of numbers) {
     total += number;
   }
-  alert("Общая сумма чисел равна " + total);
+  return "Общая сумма чисел равна " + total;
 };
 
 console.log(add());
