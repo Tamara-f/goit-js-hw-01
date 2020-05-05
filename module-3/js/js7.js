@@ -30,7 +30,7 @@ const account = {
    //    * после чего добавляет его в историю транзакций
 
    deposit(amount) {
-      createTransaction(amount, type = DEPOSIT);
+      createTransaction(amount, type = transition.DEPOSIT);
       balance += amount;
       return this.transactions;
    },
@@ -44,7 +44,7 @@ const account = {
 
    withdraw(amount) {
 
-      createTransaction(amount, type = WITHDRAW);
+      createTransaction(amount, type = transition.WITHDRAW);
 
       if (amount > this.balance) {
          console.log('недостаточно средств')
