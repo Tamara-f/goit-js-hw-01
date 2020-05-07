@@ -3,7 +3,8 @@ const Transaction = {
    DEPOSIT: 'deposit', //{id ,     type,     amount}
    WITHDRAW: 'withdraw'
 };
-
+// const key = prompt('enter transaction type');
+// console.log(Transaction[key.toUpperCase()]);
 // /*
 //  * Каждая транзакция это объект со свойствами: id, type и amount 
 //  */
@@ -78,7 +79,8 @@ const account = {
       const total;
       for (let i = 0; i < this.transactions.length; i += 1) {
          if (transactions[i].type === type) {
-            return total += transactions[i].amount;
+            total += transactions[i].amount;
+            return 'total', type, ':', total;
          }
       }
    },
