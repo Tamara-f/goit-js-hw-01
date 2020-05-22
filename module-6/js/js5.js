@@ -1,7 +1,7 @@
 import users from '../js/users.js'; // eslint-disable-line
 
 const getUserWithEmail = (users, email) => {
-  return users.find((user) => user.email === email);
+  return users.find(user => user.email === email);
 };
 
 console.log(getUserWithEmail(users, 'shereeanthony@kog.com')); // {объект пользователя Sheree Anthony}

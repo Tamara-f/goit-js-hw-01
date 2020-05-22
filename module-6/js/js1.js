@@ -1,7 +1,7 @@
 import users from '../js/users.js'; // eslint-disable-line
 
-const getUserNames = (users) => {
-  return users.map((user) => user.name);
+const getUserNames = users => {
+  return users.map(user => user.name);
 };
 
 console.log(getUserNames(users));
