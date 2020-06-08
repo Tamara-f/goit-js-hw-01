@@ -1,18 +1,49 @@
-// Напиши скрипт создания и очистки коллекции элементов. Пользователь вводит количество элементов в input и нажимает кнопку Создать, после чего рендерится коллекция. При нажатии на кнопку Очистить, коллекция элементов очищается.
+//-document.querySelector------------------------
+const renBtn = document.querySelector('button[data-action="render"]');
+const desBtn = document.querySelector('button[data-action="destroy"]');
+const input = document.querySelector('#controls input');
+const outputRef = document.querySelector('#boxes');
 
-// Создай функцию createBoxes(amount), которая принимает 1 параметр amount - число. Функция создает столько div, сколько указано в amount и добавляет их в div#boxes.
+//random-------
+function getRandomIntInclusive(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+//FUNCTION for amount-------
+input.addEventListener('change', event => {
+  const newValue = event.target.value;
+  return createBoxes(newValue);
+});
 
-// Каждый созданный div:
-
-// Имеет случайный rgb цвет фона
-// Размеры самого первого div - 30px на 30px
-// Каждый следующий div после первого, должен быть шире и выше предыдущего на 10px
-// Создай функцию destroyBoxes(), которая очищает div#boxes.
-
-// <div id="controls">
-//   <input type="number" min="0" max="100" step="1" />
-//   <button type="button" data-action="render">Создать</button>
-//   <button type="button" data-action="destroy">Очистить</button>
-// </div>
-
-// <div id="boxes"></div>
+const createBoxes = function (amount) {
+  const repeatStr = function (str, amount) {
+    let new_str = '';
+    while (amount-- > 0) new_str += str;
+    return new_str;
+  };
+  //FUNCTION for div string-------
+  outputRef.insertAdjacentHTML(
+    'afterbegin',
+    repeatStr('<div class="box"></div>', amount)
+  );
+  //FUNCTION for box style-------
+  renBtn.addEventListener('click', () => {
+    const box = document.querySelectorAll('.box');
+    let size = 30;
+    box.forEach(elem => {
+      size = size + 10;
+      elem.style.width = `${size}px`;
+      elem.style.height = `${size}px`;
+      elem.style.background = `rgb(
+            ${getRandomIntInclusive(0, 255)},${getRandomIntInclusive(
+        0,
+        255
+      )},${getRandomIntInclusive(0, 255)}`;
+    });
+  });
+};
+//FUNCTION for box reset-------
+desBtn.addEventListener('click', () => {
+  outputRef.textContent = '';
+});
