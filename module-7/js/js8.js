@@ -29,6 +29,7 @@ const createBoxes = function (amount) {
   );
   //FUNCTION for box style-------
   renBtn.addEventListener('click', () => {
+    outputRef.style.display = 'flex';
     const box = document.querySelectorAll('.box');
     let size = 30;
     box.forEach(elem => {
