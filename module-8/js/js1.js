@@ -4,6 +4,7 @@ const gallery = document.querySelector('.js-gallery');
 const lightbox = document.querySelector('.js-lightbox');
 const closeBtn = document.querySelector('button[data-action="close-lightbox"]');
 const img = document.querySelector('.lightbox__image');
+const backDrop = document.querySelector('.lightbox__content');
 
 const createGallery = galleryItems.map(elem => {
   const list = document.createElement('li');
@@ -26,18 +27,26 @@ gallery.addEventListener('click', onTagsClick);
 function onTagsClick(event) {
   lightbox.classList.add('is-open');
   img.src = event.target.dataset.source;
+  window.addEventListener('keydown', onPressEsc);
 }
-closeBtn.addEventListener('click', () => {
-  lightbox.classList.remove('is-open');
-  img.src = '';
-});
-window.addEventListener('keydown', event => {
-  if (event.code === 'Escape') {
-    lightbox.classList.remove('is-open');
-    img.src = '';
+
+closeBtn.addEventListener('click', closeModal);
+
+backDrop.addEventListener('click', event => {
+  if (event.target === event.currentTarget) {
+    closeModal();
   }
 });
+function onPressEsc(event) {
+  if (event.code === 'Escape') {
+    closeModal();
+  }
+}
 
-// Закрытие модального окна по клику на div.lightbox__overlay.
-// Закрытие модального окна по нажатию клавиши ESC.
+function closeModal(event) {
+  lightbox.classList.remove('is-open');
+  img.src = '';
+  window.removeEventListener('keydown', onPressEsc);
+}
+
 // Пролистывание изображений галереи в открытом модальном окне клавишами "влево" и "вправо".
