@@ -34,11 +34,9 @@ closeBtn.addEventListener('click', () => {
 window.addEventListener('keydown', event => {
   if (event.code === 'Escape') {
     lightbox.classList.remove('is-open');
+    img.src = '';
   }
 });
-
-// Дополнительно
-// Следующий функционал не обязателен при сдаче задания, но будет хорошей практикой по работе с событиями.
 
 // Закрытие модального окна по клику на div.lightbox__overlay.
 // Закрытие модального окна по нажатию клавиши ESC.
