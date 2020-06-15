@@ -77,27 +77,22 @@ function onPressKeydown(event) {
     closeModal();
   }
   if (event.code === 'ArrowRight') {
-    // if (counterValue >= galleryItems.length)
-    counterValue = counterValue + 1;
-
-    if (__index + 1 === galleryItems.length) {
-      closeModal();
-      __index = 1;
-      counterValue = 0;
+    if (__index < galleryItems.length - 1) {
+      counterValue = counterValue + 1;
+      return url(counterValue);
     }
-
-    return url(counterValue);
   }
   if (event.code === 'ArrowLeft') {
-    if (__index <= 0) {
-      closeModal();
-      __index = 1;
-      counterValue = 0;
-    }
+    // if (__index <= 0) {
+    //   closeModal();
+    //   __index = 1;
+    //   counterValue = 0;
+    // }
 
-    // if (counterValue > 0)
-    counterValue = counterValue - 1;
-    return url(counterValue);
+    if (__index > 0) {
+      counterValue = counterValue - 1;
+      return url(counterValue);
+    }
   }
 }
 function closeModal(event) {
