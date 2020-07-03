@@ -83,12 +83,6 @@ function onPressKeydown(event) {
     }
   }
   if (event.code === 'ArrowLeft') {
-    // if (__index <= 0) {
-    //   closeModal();
-    //   __index = 1;
-    //   counterValue = 0;
-    // }
-
     if (__index > 0) {
       counterValue = counterValue - 1;
       return url(counterValue);

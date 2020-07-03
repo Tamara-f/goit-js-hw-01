@@ -19,6 +19,14 @@ class Car {
   set setPrice(price) {
     this.price = price;
   }
+  //get price() {
+  //   return this._price;
+  // }
+
+  // set price(value) {
+  //   this._price = value;
+  //   return this._price;
+  // }
 
   turnOn() {
     this.isOn = true;
