@@ -22,7 +22,12 @@ const savedTheme = localStorage.getItem('current-theme');
 if (savedTheme) {
   body.classList = savedTheme;
 }
+if (savedTheme === 'dark-theme') {
+  input.checked = 'checked';
+  console.log('ok');
+}
 
+//for menu
 const menuItems = document.querySelector('.js-menu');
 
 import itemsTemplate from './tamplates/menu-items.hbs';
